@@ -64,11 +64,13 @@ class MovieSerializer(serializers.Serializer):
     duration = serializers.IntegerField()
     actors = serializers.PrimaryKeyRelatedField(
         many=True,
-        queryset=Actor.objects.all()
+        queryset=Actor.objects.all(),
+        required=False
     )
     genres = serializers.PrimaryKeyRelatedField(
         many=True,
-        queryset=Genre.objects.all()
+        queryset=Genre.objects.all(),
+        required=False
     )
 
     def create(self, validated_data):
